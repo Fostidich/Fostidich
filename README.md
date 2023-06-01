@@ -1,7 +1,7 @@
 <h1 align="center">Hello, I'm Francesco</h1>
 <h3 align="center">A software engineer student of Polimi, from Italy</h3>
 
-- I'm currently working on university projects of courses [API, RL and IDS](polimi.it)
+- I'm currently working on university projects of courses [API, RL and IDS](https://www.polimi.it/it)
 
 - I’m currently learning languages like **Java, C, Python, VHDL, SQL**
 
