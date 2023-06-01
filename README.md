@@ -5,7 +5,7 @@
 
 - I’m currently learning languages like **Java, C, Python, VHDL, SQL**
 
-- I live for music, here's my [spotify](https://open.spotify.com/user/lw95ieq2dxo5py65u28fvkjo7?si=5q02kiyiRne0uxjSnWDsug&nd=1))
+- I live for music, here's my [spotify](https://open.spotify.com/user/lw95ieq2dxo5py65u28fvkjo7?si=5q02kiyiRne0uxjSnWDsug&nd=1)
 
 - Here is my mail **francesco.ostidich@gmail.com**
 
