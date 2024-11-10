@@ -1,0 +1,27 @@
+\section{Introduction}
+
+\subsection{Decision making problems}
+
+Decision making problems can be arranged in various categories:
+
+\begin{itemize}
+    \item \textbf{matematical programming} has a single decision maker and a single objective;
+    \item \textbf{multi-objective programming} has instead several objectives;
+    \item \textbf{stochastic programming} corresponds to problems where there is a uncertainty level;
+    \item \textbf{game theory} fits well when there are multiple decision makers.
+\end{itemize}
+
+\subsubsection{Mathematical programming}
+
+Mathematical programming opts to minimize a decision variable $x \in \mathbb{R}^n$ inside a feasible region $X \subseteq \mathbb{R}^n$
+via a objective function $f: x \rightarrow \mathbb{R}$.
+
+MP is categorized in three special cases.
+
+$$X_0 = \Biggl\{ x \in \mathbb{R}^n : g_i(x) \lesseqgtr 0 , i=1, 2, 3, \dots, m \Biggr\}$$
+
+\begin{itemize}
+    \item \textbf{Linear programming} (LP): $X = X_0$, with $f$ and $g$ linear
+    \item \textbf{Integer linear programming} (ILP): $X = X_0 \cap \mathbb{Z}^n$, with $f$ and $g$ linear
+    \item \textbf{Non linear programming} (NLP): $X = X_0$, with $f$ and $g$ non linear
+\end{itemize}
