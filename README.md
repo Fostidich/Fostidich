@@ -1,11 +1,1 @@
-# Fostidich
-
-Hi! I'm Francesco Ostidich.
-
-I hold a Bachelor's degree in Computer Science, and I am currently pursuing my Master's.
-
-I enjoy learning new programming skills, that's why I regularly challenge myself with different projects.
-You can find more about me on my [personal website](https://fostidich.it).
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=fostidich&monokai=nord)
-
+<div style="width:100%;height:0;padding-bottom:71%;position:relative;"><iframe src="https://giphy.com/embed/JqmupuTVZYaQX5s094" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/Smolverse-smol-smolverse-swol-JqmupuTVZYaQX5s094">via GIPHY</a></p>
