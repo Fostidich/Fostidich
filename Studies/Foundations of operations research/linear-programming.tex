@@ -39,9 +39,13 @@ The feasible region, in which the variables satisfy the constraints, can be plot
     \end{tikzpicture}
 \end{figure}
 
-In the previous chart, the black lines represent the gradient of $f(x_1, x_2) + c$.
-The maximum value for $x_1$ and $x_2$ is found in the vertex of the feasible area where $c$ is at its maximum.
-Solutions may be unique, if found in a vertex, multiple, if found on a feasible area side, unbounded, if the feasible is such, or infeasible if the polyhedron (feasible area) is empty (infinite number of vertices).
+In the previous chart, the black lines are the graphs of the set of functions $f(x_1, x_2) = z$.
+The maximum value for $x_1$ and $x_2$ is found in the vertex of the feasible area where $z$ is at its maximum.
+
+A solution is unique if it is found in a vertex.
+Solutions are multiple if a feasible area side coincide with a segment of the line.
+A solution is unbounded if the feasible area is unbounded.
+A solution is infeasible if the polyhedron is empty (infinite number of vertices).
 
 \subsubsection{Polyhedron vertices}
 
@@ -325,3 +329,59 @@ Finally, the second phase can be started from the same table found in phase one,
 \end{center}
 
 On this last table (which actually already represent the best feasible solution), the simplex algorithm can be applied directly, providing $\ul{x} = (0, 0, 4)$, with $z = 2$, as best feasible solution.
+
+\subsection{Problem duality}
+
+Given a minimization problem
+
+\begin{align*}
+& z = \ul{c}^T \ul{x} \\
+& A \ul{x} \ge \ul{b} \\
+& \ul{x} \ge \ul{0} \\
+\end{align*}
+
+it can be turned into its dual maximization problem
+
+\begin{align*}
+& w = \ul{b}^T \ul{y} \\
+& A^T \ul{y} \le \ul{c} \\
+& \ul{y} \ge \ul{0}
+\end{align*}
+
+where, if $\ul{x}$ is a feasible solution of the primal problem, $\ul{y}$ is a feasible solution of the dual.
+Therefore, given $X$ and $Y$ the sets of values for which solutions are in the feasible area, if the number of solution is finite then the following is true.
+
+$$
+\min\{\ul{c}^T \ul{x} : \ul{x} \in X\} = \max\{\ul{b}^T \ul{y} : \ul{y} \in Y\}
+$$
+
+The strong duality theorem tells that if a feasible solution does exist in both primal and dual problem, then there exists an equilibrium in which both problems are satisfied with the same solution.
+
+\subsubsection{Sensitivity analysis}
+
+Problems may ask to find the variation range of parameters introduced in either the objective function or in the constraints.
+
+\begin{align*}
+    & z = x_1 + x_2 \\
+    & x_1 / 2 + x_2 \le 2 \\
+    & 2 x_1 + x_2 \le 4 \\
+    & x_1, x_2 \ge 0
+\end{align*}
+
+$$
+\begin{array}{ccc}
+    \begin{aligned}
+        & z = x_1 + x_2 \\
+        & x_1 / 2 + x_2 \le 2 + \boldsymbol{\delta} \\
+        & 2 x_1 + x_2 \le 4 + \boldsymbol{\delta} \\
+        & x_1, x_2 \ge 0
+    \end{aligned} &
+    \hspace{1in} &
+    \begin{aligned}
+        & z = \mathbf{c} x_1 + x_2 \\
+        & x_1 / 2 + x_2 \le 2 \\
+        & 2 x_1 + x_2 \le 4 \\
+        & x_1, x_2 \ge 0
+    \end{aligned}
+\end{array}
+$$
