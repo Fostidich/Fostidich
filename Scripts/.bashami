@@ -9,7 +9,7 @@ shopt -s globstar
 # Prompt color customization
 c1=$((RANDOM % 6 + 1))
 c2=$((RANDOM % 6 + 1))
-PS1="\[\e[1;3${c1}m\]\u@\h:\[\e[3${c2}m\]\w\[\e[m\]\$ "
+PS1="\[\e[1;3${c1}m\]\u@\h:\[\e[3${c2}m\]\w\[\e[m\]\n > "
 
 # Personal scripts added to PATH
 if [[ ":$PATH:" != *":$HOME/Scripts:"* ]]; then
@@ -50,7 +50,7 @@ dotenv() {
         for file in ~/.env/*; do
             if [[ -f "$file" ]]; then
                 env_name=$(basename "$file")
-                content=$(openssl enc -aes-256-cbc -d -in "$file" -pass pass:"$key" -pbkdf2 -iter 10000 2>/dev/null)
+                content=$(openssl enc -aes-256-cbc -d -in "$file" -pass pass:"$key" -pbkdf2 -iter 10000 >/dev/null 2>&1)
                 if [[ $? -ne 0 ]]; then
                     echo "Wrong key!"
                     return 1
