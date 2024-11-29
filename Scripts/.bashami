@@ -33,41 +33,19 @@ alias ffn='ff --new-window'
 alias zenn='zen --new-window'
 alias clip='xclip -selection clipboard'
 alias t='tmux'
-alias v='nvim'
+alias vc='v ~/.config/nvim/init.vim'
 alias src='source ~/.bashami'
+alias dotenv='source _dotenv'
+alias bashami='v ~/.bashami'
 
 # Personal functions
 
-# Key variables
-dotenv() {
-    if [[ $# -eq 0 ]]; then
-        echo "Missing command (up/down)"
-        return 1
-    fi
-    if [[ "$1" == "up" ]]; then
-        read -s -p "Decryption key: " key
-        echo
-        for file in ~/.env/*; do
-            if [[ -f "$file" ]]; then
-                env_name=$(basename "$file")
-                content=$(openssl enc -aes-256-cbc -d -in "$file" -pass pass:"$key" -pbkdf2 -iter 10000 >/dev/null 2>&1)
-                if [[ $? -ne 0 ]]; then
-                    echo "Wrong key!"
-                    return 1
-                else
-                    export "$env_name"="$content"
-                fi
-            fi
-        done
-        echo "~/.env variables set"
-    elif [[ "$1" == "down" ]]; then
-        for file in ~/.env/*; do
-            if [[ -f "$file" ]]; then
-                env_name=$(basename "$file")
-                unset "$env_name"
-            fi
-        done
-        echo "~/.env variables unset"
+# Neovim opening
+v() {
+    if [ $# -ge 1 ]; then
+        nvim $@
+    else
+        nvim .
     fi
 }
 
