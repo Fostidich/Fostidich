@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Other apps requirements
 eval "$(zoxide init --cmd cd bash)"
 
@@ -16,6 +18,9 @@ if [[ ":$PATH:" != *":$HOME/Scripts:"* ]]; then
     export PATH="$HOME/Scripts:$PATH"
 fi
 
+# Set back folder for navigation
+export BACK=$(pwd)
+
 # Personal aliases
 alias plsh='plass show'
 alias p='plass show'
@@ -33,10 +38,10 @@ alias ffn='ff --new-window'
 alias zenn='zen --new-window'
 alias clip='xclip -selection clipboard'
 alias t='tmux'
-alias vc='v ~/.config/nvim/init.vim'
+alias vconfig='v ~/.config/nvim/init.vim'
+alias bconfig='v ~/.bashami'
 alias src='source ~/.bashami'
 alias dotenv='source _dotenv'
-alias bashami='v ~/.bashami'
 
 # Personal functions
 
@@ -94,10 +99,16 @@ nav() {
     done
 }
 
+# Back navigation
+back() {
+    cd "$BACK"
+}
+
 # Home
 export HM=~
 
 hm() {
+    export BACK=$(pwd)
     cd $HM
     nav "$@"
 }
@@ -106,6 +117,7 @@ hm() {
 export DK=~/Desktop
 
 dk() {
+    export BACK=$(pwd)
     cd $DK
     nav "$@"
 }
@@ -114,6 +126,7 @@ dk() {
 export DC=~/Documents
 
 dc() {
+    export BACK=$(pwd)
     cd $DC
     nav "$@"
 }
@@ -122,6 +135,7 @@ dc() {
 export DW=~/Downloads
 
 dw() {
+    export BACK=$(pwd)
     cd $DW
     nav "$@"
 }
@@ -130,6 +144,7 @@ dw() {
 export PC=~/Pictures
 
 pc() {
+    export BACK=$(pwd)
     cd $PC
     nav "$@"
 }
@@ -138,6 +153,7 @@ pc() {
 export RP=~/Repos
 
 rp() {
+    export BACK=$(pwd)
     cd $RP
     nav "$@"
 }
@@ -146,6 +162,7 @@ rp() {
 export SC=~/Scripts
 
 sc() {
+    export BACK=$(pwd)
     cd $SC
     nav "$@"
 }
@@ -154,6 +171,7 @@ sc() {
 export ST=~/Studies
 
 st() {
+    export BACK=$(pwd)
     cd $ST
     nav "$@"
 }
