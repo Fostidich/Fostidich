@@ -1,46 +1,39 @@
-#!/bin/bash
+#!/bin/zsh
 
-# Other apps requirements
-eval "$(zoxide init --cmd cd bash)"
-
-# Bash custom options
-bind 'set completion-ignore-case on'
-bind TAB:menu-complete
-shopt -s globstar
+# Zsh custom options
+setopt IGNORE_EOF
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' menu select  
+autoload -Uz compinit && compinit
 
 # Prompt color customization
 c1=$((RANDOM % 6 + 1))
 c2=$((RANDOM % 6 + 1))
-PS1="\[\e[1;3${c1}m\]\u@\h:\[\e[3${c2}m\]\w\[\e[m\]\n > "
-
-# Personal scripts added to PATH
-if [[ ":$PATH:" != *":$HOME/Scripts:"* ]]; then
-    export PATH="$HOME/Scripts:$PATH"
-fi
+PS1="%F{${c1}}%n@%m%f %F{${c2}}%1~%f > "
 
 # Set back folder for navigation
 export BACK=$(pwd)
 
 # Personal aliases
-alias plsh='plass show'
-alias p='plass show'
-alias ex='exit'
-alias q='exit'
-alias cl='clear'
-alias bat='batcat'
 alias b='bat'
-alias l='tag ls'
+alias c='cat'
 alias d='tag la'
-alias ll='eza --long --hyperlink'
-alias exa='exa --oneline --hyperlink --total-size --long --no-permissions --no-user --no-time'
-alias gitok='echo $GHTOK | xclip -selection clipboard'
-alias ffn='ff --new-window'
-alias zenn='zen --new-window'
-alias clip='xclip -selection clipboard'
+alias l='tag ls'
+alias p='plass show'
+alias q='exit'
 alias t='tmux'
-alias vconfig='v ~/.config/nvim/init.vim'
-alias bconfig='v ~/.bashami'
-alias src='source ~/.bashami'
+alias cl='clear'
+alias ex='exit'
+alias ll='eza --long --hyperlink'
+alias la='ls -a'
+alias plsh='plass show'
+alias exa='exa --oneline --hyperlink --total-size --long --no-permissions --no-user --no-time'
+alias gitok='echo $GHTOK | pbcopy'
+alias clip='pbcopy'
+alias vconfig='v ~/.config/nvim/init.lua'
+alias zconfig='v ~/.zshrc'
+alias src='exec zsh'
 alias dotenv='source _dotenv'
 
 # Personal functions
@@ -88,7 +81,7 @@ fmv() {
 
 # Folder navigation
 nav() {
-    shopt -s nocaseglob
+    setopt NO_CASE_GLOB
     for arg in "$@"; do
         for dir in ./"$arg"*; do
             if [ -d "$dir" ]; then
@@ -101,7 +94,9 @@ nav() {
 
 # Back navigation
 back() {
-    cd "$BACK"
+    temp="$BACK"
+    export BACK=$(pwd)
+    cd "$temp"
 }
 
 # Home
@@ -110,15 +105,6 @@ export HM=~
 hm() {
     export BACK=$(pwd)
     cd $HM
-    nav "$@"
-}
-
-# Desktop
-export DK=~/Desktop
-
-dk() {
-    export BACK=$(pwd)
-    cd $DK
     nav "$@"
 }
 
@@ -140,17 +126,8 @@ dw() {
     nav "$@"
 }
 
-# Pictures
-export PC=~/Pictures
-
-pc() {
-    export BACK=$(pwd)
-    cd $PC
-    nav "$@"
-}
-
 # Repos
-export RP=~/Repos
+export RP=~/Documents/Repos
 
 rp() {
     export BACK=$(pwd)
@@ -158,51 +135,13 @@ rp() {
     nav "$@"
 }
 
-# Scripts
-export SC=~/Scripts
-
-sc() {
-    export BACK=$(pwd)
-    cd $SC
-    nav "$@"
-}
-
 # Studies
-export ST=~/Studies
+export ST=~/Documents/Studies
 
 st() {
     export BACK=$(pwd)
     cd $ST
     nav "$@"
-}
-
-# Open in zen
-zen() {
-    nohup ~/.local/zen.app/zen >/dev/null 2>/dev/null "$@" &
-}
-
-# Open in firefox
-ff() {
-    nohup firefox >/dev/null 2>/dev/null "$@" &
-}
-
-# Open in text editor
-te() {
-    nohup gnome-text-editor >/dev/null 2>/dev/null "$@" &
-}
-
-# Open in image viewer
-iv() {
-    nohup eog >/dev/null 2>/dev/null "$@" &
-}
-
-# Open in file explorer
-xp() {
-    if [ $# -eq 0 ]; then
-        nohup nautilus >/dev/null 2>/dev/null "$(pwd)" &
-    else
-        nohup nautilus >/dev/null 2>/dev/null "$@" &
-    fi
 }
 
 # Launch program detached and independent
