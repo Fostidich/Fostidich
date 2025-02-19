@@ -1,4 +1,5 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(~/.local/bin/dotenv init)"
 eval "$(/opt/homebrew/bin/zoxide init zsh)"
 alias cd="z"
 export PATH=$PATH:$HOME/.local/bin

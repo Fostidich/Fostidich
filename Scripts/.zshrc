@@ -31,10 +31,10 @@ alias plsh='plass show'
 alias exa='exa --oneline --hyperlink --total-size --long --no-permissions --no-user --no-time'
 alias gitok='echo $GHTOK | pbcopy'
 alias clip='pbcopy'
-alias vconfig='v ~/.config/nvim/init.lua'
-alias zconfig='v ~/.zshrc'
-alias src='exec zsh'
-alias dotenv='source _dotenv'
+alias vconfig='nvim ~/.config/nvim/init.lua'
+alias zconfig='nvim ~/.zshrc'
+alias pconfig='nvim ~/.zprofile'
+alias src='source ~/.zshrc'
 
 # Personal functions
 

@@ -1,7 +1,11 @@
 #!/bin/zsh
 
 if [[ $# -eq 0 ]]; then
-    echo "Missing command (up/down/status)"
+    if [[ -z "$DOTENV_SET" ]]; then
+        echo "dotenv is down"
+    else
+        echo "dotenv is up"
+    fi
 
 elif [[ "$1" == "up" ]]; then
     read -s "key?Decryption key: "
@@ -31,10 +35,9 @@ elif [[ "$1" == "down" ]]; then
     unset DOTENV_SET
     echo "~/.env variables unset"
 
-elif [[ "$1" == "status" ]]; then
-    if [[ -z "$DOTENV_SET" ]]; then
-        echo dotenv is down
-    else
-        echo dotenv is up
-    fi
+elif [[ "$1" == "init" ]]; then
+    echo "alias dotenv='source ${(%):-%N}'"
+
+else
+    echo "Unknown command"
 fi
