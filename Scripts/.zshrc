@@ -23,7 +23,7 @@ alias l='tag ls'
 alias p='plass show'
 alias q='exit'
 alias t='tmux'
-alias cl='clear'
+alias cl='clear && clear'
 alias ex='exit'
 alias ll='eza --long --hyperlink'
 alias la='ls -a'
@@ -141,6 +141,15 @@ export ST=~/Documents/Studies
 st() {
     export BACK=$(pwd)
     cd $ST
+    nav "$@"
+}
+
+# iCloud
+export IC=~/iCloud
+
+ic() {
+    export BACK=$(pwd)
+    cd $IC
     nav "$@"
 }
 

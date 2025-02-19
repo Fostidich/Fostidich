@@ -1,51 +1,51 @@
 #!/bin/bash
 
 typos_files="_typos.toml"
-latex_files="*.aux *.log *.out *.toc"
+latex_files="*.aux *.log *.out *.toc *.fls"
 
 # typos run
 typos_run=true
 for arg in "$@"; do
-if [ "$arg" == "-u" ]; then
-  typos_run=false
-fi
+    if [ "$arg" == "-u" ]; then
+        typos_run=false
+    fi
 done
 
 if $typos_run; then
-  echo -e "\e[32m[Typos check]\e[0m"
+    echo -e "\e[32m[Typos check]\e[0m"
 
-  write_typos=""
-  for arg in "$@"; do
-  if [ "$arg" == "-w" ]; then
-    write_typos="-w"
-    echo "Writing fixes out"
-  fi
-  done
+    write_typos=""
+    for arg in "$@"; do
+        if [ "$arg" == "-w" ]; then
+            write_typos="-w"
+            echo "Writing fixes out"
+        fi
+    done
 
-  typos $write_typos
+    typos $write_typos
 
-  if [ "$write_typos" == "" ] && [ $? -eq 0 ]; then
-    echo "No typo has been found"
-  fi
+    if [ "$write_typos" == "" ] && [ $? -eq 0 ]; then
+        echo "No typo has been found"
+    fi
 fi
 
 # pdflatex run
 echo -e "\e[32m[Pdf build]\e[0m"
 
 for arg in "$@"; do
-if [ "$arg" == "-v" ]; then
-  pdflatex main.tex
-  exit $?
-fi
+    if [ "$arg" == "-v" ]; then
+        pdflatex main.tex
+        exit $?
+    fi
 done
 
 pdflatex -interaction=nonstopmode main.tex >/dev/null 2>&1
 
 if [ $? -ne 0 ]; then
-  rm $latex_files >/dev/null 2>&1
-  echo "Unable to produce pdf from $(pwd)/main.tex"
-  echo "Use \"makepdf -v\" to see \"pdflatex main.tex\" output"
-  exit 1
+    rm $latex_files >/dev/null 2>&1
+    echo "Unable to produce pdf from $(pwd)/main.tex"
+    echo "Use \"makepdf -v\" to see \"pdflatex main.tex\" output"
+    exit 1
 fi
 
 pdflatex -interaction=nonstopmode main.tex >/dev/null 2>&1
