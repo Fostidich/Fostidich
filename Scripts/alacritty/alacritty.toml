@@ -1,0 +1,8 @@
+general.import = ["keymaps.toml", "theme.toml"]
+
+[font]
+normal = { family = "FiraCode Nerd Font", style = "Regular" }
+size = 12
+
+[window]
+startup_mode = "Fullscreen"

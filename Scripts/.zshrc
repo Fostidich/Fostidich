@@ -2,10 +2,10 @@
 
 # Zsh custom options
 setopt IGNORE_EOF
+setopt NULL_GLOB
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' menu select  
-autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
 
 # Prompt color customization
 c1=$((RANDOM % 6 + 1))
@@ -23,37 +23,39 @@ alias l='tag ls'
 alias p='plass show'
 alias q='exit'
 alias t='tmux'
+alias v='nvim'
 alias cl='clear && clear'
 alias ex='exit'
 alias ll='eza --long --hyperlink'
 alias la='ls -a'
+alias ip='ipconfig getifaddr en0'
 alias plsh='plass show'
+alias path='echo "$PATH" | "tr" : "\n"'
 alias exa='exa --oneline --hyperlink --total-size --long --no-permissions --no-user --no-time'
 alias gitok='echo $GHTOK | pbcopy'
 alias clip='pbcopy'
-alias vconfig='nvim ~/.config/nvim/init.lua'
+alias vconfig='nvim ~/.config/nvim/lua/config'
 alias zconfig='nvim ~/.zshrc'
 alias pconfig='nvim ~/.zprofile'
+alias aconfig='nvim ~/.config/alacritty/alacritty.toml'
 alias src='source ~/.zshrc'
 
 # Personal functions
 
-# Neovim opening
-v() {
-    if [ $# -ge 1 ]; then
-        nvim $@
-    else
-        nvim .
-    fi
-}
-
 # SSH keys
 ssh-load() {
-    eval $(ssh-agent -s)
+    eval "$(ssh-agent -s)"
     echo "$1" > /tmp/tmp_ssh_key
     chmod 600 /tmp/tmp_ssh_key
     ssh-add /tmp/tmp_ssh_key
     rm /tmp/tmp_ssh_key
+}
+
+# Make PDF from TeX
+makepdf() {
+    pdflatex main.tex > /dev/null
+    pdflatex main.tex > /dev/null
+    rm -f *.aux *.log *.out *.toc *.fls
 }
 
 # Folder tree
