@@ -20,6 +20,8 @@ export VK_LAYER_PATH="$VULKAN_SDK/share/vulkan/explicit_layer.d"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(~/.local/bin/dotenv init)"
 eval "$(~/.cargo/bin/leetcode completions)"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 eval "$(/opt/homebrew/bin/zoxide init zsh)"
 
 alias cd="z"

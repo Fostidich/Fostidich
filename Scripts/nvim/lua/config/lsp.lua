@@ -27,9 +27,32 @@ require("lspconfig").clangd.setup({
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
+-- TODO: What is this?
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,
   underline = true,
   update_in_insert = false,
 })
+
+return {
+  "neovim/nvim-lspconfig",
+  opts = {
+    servers = {
+      marksman = false, -- markdown LSP
+      ltex = false, -- grammar checker
+    },
+    setup = {
+      markdown = function()
+        vim.api.nvim_create_autocmd("FileType", {
+          pattern = "markdown",
+          callback = function(args)
+            -- Disable diagnostics in markdown<D-a>
+            vim.diagnostic.diable(args.buf)
+          end,
+        })
+        return false
+      end,
+    },
+  },
+}

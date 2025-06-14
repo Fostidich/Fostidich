@@ -39,6 +39,7 @@ alias zconfig='nvim ~/.zshrc'
 alias pconfig='nvim ~/.zprofile'
 alias aconfig='nvim ~/.config/alacritty/alacritty.toml'
 alias src='source ~/.zshrc'
+alias activate='source .venv/bin/activate'
 
 # Personal functions
 
@@ -51,11 +52,16 @@ ssh-load() {
     rm /tmp/tmp_ssh_key
 }
 
+# Launch program detached
+ind() {
+    nohup "$@" >/dev/null 2>/dev/null &
+}
+
 # Make PDF from TeX
 makepdf() {
     pdflatex main.tex > /dev/null
     pdflatex main.tex > /dev/null
-    rm -f *.aux *.log *.out *.toc *.fls
+    rm -rf *.aux *.log *.out *.toc *.fls _minted
 }
 
 # Folder tree
@@ -138,7 +144,7 @@ rp() {
 }
 
 # Studies
-export ST=~/Documents/Studies
+export ST=~/iCloud/Studies/Courses
 
 st() {
     export BACK=$(pwd)
@@ -155,7 +161,3 @@ ic() {
     nav "$@"
 }
 
-# Launch program detached and independent
-ind() {
-    nohup "$@" >/dev/null 2>/dev/null &
-}
