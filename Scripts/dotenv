@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+# Print status
 if [[ $# -eq 0 ]]; then
     if [[ -z "$DOTENV_SET" ]]; then
         echo "dotenv is down"
@@ -7,6 +8,7 @@ if [[ $# -eq 0 ]]; then
         echo "dotenv is up"
     fi
 
+# Decrypt, set variables
 elif [[ "$1" == "up" ]]; then
     read -s "key?Decryption key: "
     echo
@@ -25,6 +27,7 @@ elif [[ "$1" == "up" ]]; then
     export DOTENV_SET=1
     echo "~/.env variables set"
 
+# Unset variables
 elif [[ "$1" == "down" ]]; then
     for file in ~/.env/*; do
         if [[ -f "$file" ]]; then
@@ -35,9 +38,20 @@ elif [[ "$1" == "down" ]]; then
     unset DOTENV_SET
     echo "~/.env variables unset"
 
+# Encrypt
+elif [[ "$1" == "enc" ]]; then
+    read -s "key?Encryption key: "
+    echo
+    file=~/.env/"$2"
+    plain="$3"
+    openssl enc -aes-256-cbc -in "$plain" -pass pass:"$key" -pbkdf2 -iter 10000 -out "$file"
+    echo "$2 updated"
+
+# Create alias on shell startup
 elif [[ "$1" == "init" ]]; then
     echo "alias dotenv='source ${(%):-%N}'"
 
+# Unknown command
 else
     echo "Unknown command"
 fi
