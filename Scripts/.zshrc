@@ -10,7 +10,7 @@ zstyle ':completion:*' menu select
 # Prompt color customization
 c1=$((RANDOM % 6 + 1))
 c2=$((RANDOM % 6 + 1))
-PS1="%F{${c1}}%n@%m%f %F{${c2}}%1~%f > "
+PS1="%F{${c1}}%n@%m%f %F{${c2}}%1~%f "
 
 # Set back folder for navigation
 export BACK=$(pwd)
@@ -30,15 +30,15 @@ alias ll='eza --long --hyperlink'
 alias la='ls -a'
 alias ip='ipconfig getifaddr en0'
 alias plsh='plass show'
-alias path='echo "$PATH" | "tr" : "\n"'
+alias path='echo $PATH | tr : "\n"'
 alias exa='exa --oneline --hyperlink --total-size --long --no-permissions --no-user --no-time'
 alias gitok='echo $GHTOK | pbcopy'
 alias clip='pbcopy'
-alias vconfig='nvim ~/.config/nvim/lua/config'
+alias src='source ~/.zshrc'
+alias vconfig='nvim ~/.config/nvim'
 alias zconfig='nvim ~/.zshrc'
 alias pconfig='nvim ~/.zprofile'
-alias aconfig='nvim ~/.config/alacritty/alacritty.toml'
-alias src='source ~/.zshrc'
+alias aconfig='nvim ~/.config/alacritty'
 alias activate='source .venv/bin/activate'
 
 # Personal functions
@@ -62,19 +62,6 @@ makepdf() {
     pdflatex main.tex > /dev/null
     pdflatex main.tex > /dev/null
     rm -rf *.aux *.log *.out *.toc *.fls _minted
-}
-
-# Folder tree
-lt() {
-    if [ $# -ge 1 ]; then
-        if [ -d "$1" ]; then
-            eza --hyperlink --long --no-permissions --no-user --no-time --tree "$@"
-        elif [[ "$1" =~ ^[0-9]+$ ]]; then
-            eza --hyperlink --long --no-permissions --no-user --no-time --tree -L "$1"
-        fi
-    else
-        eza --hyperlink --long --no-permissions --no-user --no-time --tree
-    fi
 }
 
 # Fast copy
@@ -140,15 +127,6 @@ export RP=~/Documents/Repos
 rp() {
     export BACK=$(pwd)
     cd $RP
-    nav "$@"
-}
-
-# Studies
-export ST=~/iCloud/Studies/Courses
-
-st() {
-    export BACK=$(pwd)
-    cd $ST
     nav "$@"
 }
 

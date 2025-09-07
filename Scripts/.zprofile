@@ -31,3 +31,6 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(/opt/homebrew/bin/zoxide init zsh)"
 
+
+# Added by swiftly
+. "/Users/kello/.swiftly/env.sh"
