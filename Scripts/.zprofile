@@ -7,6 +7,7 @@ alias cd="z"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 # Homebrew
 export HOMEBREW_AUTO_UPDATE_SECS=86400
@@ -31,6 +32,5 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(/opt/homebrew/bin/zoxide init zsh)"
 
-
-# Added by swiftly
+# Swiftly
 . "/Users/kello/.swiftly/env.sh"
