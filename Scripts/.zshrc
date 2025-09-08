@@ -16,29 +16,27 @@ PS1="%F{${c1}}%n@%m%f %F{${c2}}%1~%f "
 export BACK=$(pwd)
 
 # Personal aliases
-alias b='bat'
+alias b='back'
 alias c='cat'
 alias d='tag la'
 alias l='tag ls'
-alias p='plass show'
 alias q='exit'
 alias t='tmux'
 alias v='nvim'
 alias cl='clear && clear'
-alias ex='exit'
 alias ll='eza --long --hyperlink'
 alias la='ls -a'
 alias ip='ipconfig getifaddr en0'
-alias plsh='plass show'
 alias path='echo $PATH | tr : "\n"'
-alias exa='exa --oneline --hyperlink --total-size --long --no-permissions --no-user --no-time'
 alias gitok='echo $GHTOK | pbcopy'
 alias clip='pbcopy'
 alias src='source ~/.zshrc'
+alias tsrc='tmux source ~/.config/tmux/tmux.conf'
+alias aconfig='nvim ~/.config/alacritty'
 alias vconfig='nvim ~/.config/nvim'
+alias tconfig='nvim ~/.config/tmux'
 alias zconfig='nvim ~/.zshrc'
 alias pconfig='nvim ~/.zprofile'
-alias aconfig='nvim ~/.config/alacritty'
 alias activate='source .venv/bin/activate'
 
 # Personal functions

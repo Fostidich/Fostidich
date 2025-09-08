@@ -1,3 +1,13 @@
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        if vim.fn.argc() == 0 then
+            vim.schedule(function()
+                require("oil").open()
+            end)
+        end
+    end,
+})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight yanked text",
     group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),

@@ -14,10 +14,16 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Go down a page" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next match" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous match" })
 
-vim.keymap.set("n", "<C-h>", "<cmd>cprev<CR>", { desc = "Previous quickfix match" })
-vim.keymap.set("n", "<C-l>", "<cmd>cnext<CR>", { desc = "Next quickfix match" })
-vim.keymap.set("n", "<C-j>", "<cmd>cclose<CR>", { desc = "Close quickfix" })
-vim.keymap.set("n", "<C-k>", "<cmd>copen<CR>", { desc = "Open quickfix" })
+vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>", { desc = "Previous quickfix match" })
+vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>", { desc = "Next quickfix match" })
+vim.keymap.set("n", "<leader>o", function()
+    local winid = vim.fn.getqflist({ winid = 0 }).winid
+    if winid ~= 0 then
+        vim.cmd("cclose")
+    else
+        vim.cmd("copen")
+    end
+end, { desc = "Toggle Quickfix" })
 
 vim.keymap.set({ "n", "v" }, "<Left>", function()
     vim.cmd('echo "Go left with \'h\'"')
