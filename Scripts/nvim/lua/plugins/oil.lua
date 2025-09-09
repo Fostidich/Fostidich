@@ -1,6 +1,7 @@
 return {
     'stevearc/oil.nvim',
     lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         local oil = require "oil"
 
@@ -16,6 +17,8 @@ return {
 
         oil.setup({
             default_file_explorer = true,
+            columns = {
+            },
             constrain_cursor = "name",
             keymaps = {
                 ["<leader>d"] = { "actions.close", mode = "n", desc = "Open file explorer in float" },
@@ -26,7 +29,10 @@ return {
                 ["<BS>"] = { "actions.parent", mode = "n", desc = "Go to parent folder" },
                 ["H"] = { "actions.parent", mode = "n", desc = "Go to parent folder" },
                 ["<C-.>"] = { "actions.toggle_hidden", mode = "n", desc = "Toggle hidden files" },
-                ["<C-h>"] = false
+                ["<C-h>"] = false,
+                ["<C-j>"] = false,
+                ["<C-k>"] = false,
+                ["<C-l>"] = false,
             },
             use_default_keymaps = true,
             view_options = {

@@ -5,7 +5,16 @@ return {
     config = function()
         local builtin = require "telescope.builtin"
 
-        vim.keymap.set("n", "<leader>f", builtin.git_files, { desc = "Search project files" })
+        local function project_files()
+            local git_dir = vim.fn.finddir(".git", ".;")
+            if git_dir ~= "" then
+                builtin.git_files()
+            else
+                builtin.find_files()
+            end
+        end
+
+        vim.keymap.set("n", "<leader>f", project_files, { desc = "Search project files" })
         vim.keymap.set("n", "<leader>F", builtin.find_files, { desc = "Search files" })
         vim.keymap.set("n", "<leader>g", builtin.live_grep, { desc = "Live grep" })
         vim.keymap.set("n", "<leader>G", builtin.current_buffer_fuzzy_find,

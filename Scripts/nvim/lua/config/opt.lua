@@ -16,3 +16,4 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 20
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
+vim.opt.laststatus = 3

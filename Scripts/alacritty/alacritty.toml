@@ -8,6 +8,8 @@ size = 15
 [window]
 startup_mode = "Fullscreen"
 dynamic_padding = true
+opacity = 0.85
+blur = true
 
 [env]
 TERM = "xterm-256color"
