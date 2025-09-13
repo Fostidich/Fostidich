@@ -1,7 +1,6 @@
 # Misc setups
 autoload -U compinit
 compinit
-alias cd="z"
 
 # Various programs paths
 export PATH="$PATH:$HOME/.local/bin"
@@ -34,3 +33,4 @@ eval "$(/opt/homebrew/bin/zoxide init zsh)"
 
 # Swiftly
 . "/Users/kello/.swiftly/env.sh"
+

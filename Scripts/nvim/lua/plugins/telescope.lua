@@ -6,8 +6,8 @@ return {
         local builtin = require "telescope.builtin"
 
         local function project_files()
-            local git_dir = vim.fn.finddir(".git", ".;")
-            if git_dir ~= "" then
+            local is_git_repo = vim.fn.systemlist("git rev-parse --is-inside-work-tree")[1] == "true"
+            if is_git_repo then
                 builtin.git_files()
             else
                 builtin.find_files()

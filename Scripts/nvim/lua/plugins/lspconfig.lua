@@ -58,12 +58,9 @@ return {
                 mapset("n", "gs", vim.lsp.buf.document_symbol, "Show document symbols")
                 mapset({ "n", "v" }, "ga", vim.lsp.buf.code_action, "Show code actions")
                 mapset("n", "gr", vim.lsp.buf.rename, "Rename symbol")
-                mapset("n", "gm", vim.diagnostic.open_float, "Show diagnostic message")
-                mapset("n", "[d", vim.diagnostic.goto_prev, "Previous diagnostic")
-                mapset("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
                 mapset("n", "gf", vim.lsp.buf.format, "Format file")
 
-                local has_autofmt = client.supports_method("textDocument/formatting")
+                local has_autofmt = client:supports_method("textDocument/formatting")
                 vim.b[args.buf].has_autofmt = has_autofmt
                 if has_autofmt then
                     vim.api.nvim_create_autocmd("BufWritePre", {
