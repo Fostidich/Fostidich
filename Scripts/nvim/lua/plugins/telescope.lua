@@ -16,9 +16,9 @@ return {
 
         vim.keymap.set("n", "<leader>f", project_files, { desc = "Search project files" })
         vim.keymap.set("n", "<leader>F", builtin.find_files, { desc = "Search files" })
-        vim.keymap.set("n", "<leader>g", builtin.live_grep, { desc = "Live grep" })
-        vim.keymap.set("n", "<leader>G", builtin.current_buffer_fuzzy_find,
+        vim.keymap.set("n", "<leader>g", builtin.current_buffer_fuzzy_find,
             { desc = "List highlights in current file" })
+        vim.keymap.set("n", "<leader>G", builtin.live_grep, { desc = "Live grep" })
         vim.keymap.set("n", "<leader>h", builtin.diagnostics, { desc = "List diagnostics" })
         vim.keymap.set("n", "<leader>H", function()
             builtin.diagnostics { bufnr = 0 }

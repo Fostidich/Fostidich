@@ -22,6 +22,7 @@ return {
                 "cmake",
                 "java",
                 "rust",
+                "zig",
                 "go",
                 "swift"
             },
