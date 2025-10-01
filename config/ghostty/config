@@ -1,0 +1,23 @@
+font-family = FiraCode Nerd Font Mono
+font-feature = -calt
+font-size = 20
+
+theme = TokyoNight Moon
+
+background-image = ghostty-wallpaper-blur.jpg
+background-image-opacity = 0.75
+background-image-fit = cover
+# background-opacity = 0.75
+# background-blur = true
+
+term = xterm-256color
+
+fullscreen = true
+title = ghostty
+working-directory = home
+
+window-padding-balance = true
+window-padding-color = extend
+
+macos-titlebar-proxy-icon = hidden
+
