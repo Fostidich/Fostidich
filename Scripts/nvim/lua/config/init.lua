@@ -1,6 +1,5 @@
 require "config.lazy"
 require "config.functions"
-require "config.colors"
 require "config.diagnostic"
 require "config.autocmd"
 require "config.opt"
