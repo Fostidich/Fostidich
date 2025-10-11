@@ -14,13 +14,6 @@ return {
             end
         end
 
-        -- vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "none" })
-        -- vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { bg = "none" })
-        --
         vim.keymap.set("n", "<leader>f", project_files, { desc = "Search project files" })
         vim.keymap.set("n", "<leader>F", builtin.find_files, { desc = "Search files" })
         vim.keymap.set("n", "<leader>g", builtin.current_buffer_fuzzy_find,
