@@ -47,6 +47,10 @@ elif [[ "$1" == "enc" ]]; then
     openssl enc -aes-256-cbc -in "$plain" -pass pass:"$key" -pbkdf2 -iter 10000 -out "$file"
     echo "$2 updated"
 
+# Copy in clipboard
+elif [[ "$1" == "clip" ]]; then
+    echo "$2" | clip
+
 # Create alias on shell startup
 elif [[ "$1" == "init" ]]; then
     echo "alias dotenv='source ${(%):-%N}'"
@@ -55,3 +59,4 @@ elif [[ "$1" == "init" ]]; then
 else
     echo "Unknown command"
 fi
+

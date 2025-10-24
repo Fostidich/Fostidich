@@ -5,6 +5,9 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Unfocus from terminal" })
 vim.keymap.set("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move selected text down" })
 vim.keymap.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move selected text up" })
 
+vim.keymap.set("v", ">", ">gv", { desc = "Indend visual block" })
+vim.keymap.set("v", "<", "<gv", { desc = "Unindent visual block" })
+
 vim.keymap.set("n", "L", "G$", { desc = "Last file's char" })
 vim.keymap.set("n", "H", "gg0", { desc = "First files's char" })
 

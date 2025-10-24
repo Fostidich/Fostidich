@@ -20,6 +20,7 @@ return {
         vim.lsp.enable "cssls"
         vim.lsp.enable "pyright"
         vim.lsp.enable "clangd"
+        vim.lsp.enable "omnisharp"
         vim.lsp.enable "cmake"
         vim.lsp.enable "rust_analyzer"
         vim.lsp.enable "zls"
@@ -75,3 +76,4 @@ return {
         })
     end
 }
+

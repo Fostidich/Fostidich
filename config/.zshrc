@@ -5,7 +5,9 @@ setopt IGNORE_EOF
 setopt NULL_GLOB
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu yes select
+zstyle ':completion:*' auto-description '%d'
+bindkey '^I' menu-complete
 
 # Prompt color customization
 c1=$((RANDOM % 6 + 1))

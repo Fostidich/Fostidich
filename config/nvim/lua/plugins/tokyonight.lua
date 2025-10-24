@@ -26,6 +26,6 @@ return {
         vim.cmd "highlight LineNrAbove guifg=#16161e"
         vim.cmd "highlight LineNrBelow guifg=#16161e"
 
-        vim.cmd "highlight SpellBad gui=underline guisp=#7aa2f7"
+        vim.cmd "highlight SpellBad gui=underline guisp=#565f89"
     end
 }

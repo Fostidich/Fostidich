@@ -1,11 +1,11 @@
-font-family = MonoCraft
+font-family = FiraCode Nerd Font Mono
 font-feature = -calt
 font-size = 16
 
 theme = TokyoNight Moon
 
 background-image = ghostty-wallpaper-blur.jpg
-background-image-opacity = 0.5
+background-image-opacity = 0.25
 background-image-fit = cover
 # background-opacity = 0.75
 # background-blur = true

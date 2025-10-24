@@ -16,6 +16,9 @@ export HOMEBREW_NO_ENV_HINTS=1
 export PATH="$PATH:/opt/homebrew/opt/openjdk@21/bin"
 export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
 
+# C#
+export DOTNET_ROOT="/usr/local/share/dotnet"
+
 # Vulkan
 export PATH="$PATH:$HOME/.local/VulkanSDK/1.4.304.1/Applications/vkcube.app/Contents/MacOS"
 export VULKAN_SDK="$HOME/.local/VulkanSDK/1.4.304.1/macOS"
