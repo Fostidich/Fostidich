@@ -8,3 +8,17 @@ function ToggleQuickfix()
 end
 
 vim.api.nvim_create_user_command("ToggleQuickfix", ToggleQuickfix, {})
+
+function SoloBuf()
+    local current_buf = vim.fn.bufnr()
+    local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+    for _, buf in ipairs(bufs) do
+        if buf.bufnr ~= current_buf then
+            vim.cmd("bdelete " .. buf.bufnr)
+            print("Closed buffer " .. buf.bufnr)
+        end
+    end
+    print("Left open buffer " .. current_buf)
+end
+
+vim.api.nvim_create_user_command("SoloBuf", SoloBuf, {})

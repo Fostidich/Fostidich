@@ -7,6 +7,26 @@ return {
     },
     config = function(_, opts)
         vim.cmd "highlight VirtColumn guifg=#7aa2f7"
-        require("virt-column").setup(opts)
+
+        local virtcolumn = require("virt-column")
+        virtcolumn.setup(opts)
+
+        local enabled = true
+        vim.keymap.set("n", ";", opts.virtcolumn .. "|", { desc = "Jump to virtual column" })
+        vim.keymap.set("n", "<leader>;", function()
+            if enabled then
+                virtcolumn.setup({ virtcolumn = "" })
+                vim.opt.nu = false
+                vim.opt.relativenumber = false
+                enabled = false
+            else
+                virtcolumn.setup(opts)
+                vim.opt.nu = true
+                vim.opt.relativenumber = true
+                enabled = true
+            end
+            vim.cmd "Gitsigns toggle_signs"
+            vim.cmd "redraw!"
+        end, { desc = "Toggle virtual column" })
     end
 }

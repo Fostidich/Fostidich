@@ -37,14 +37,22 @@ alias activate='source .venv/bin/activate'
 alias md='grip >/dev/null 2>&1 -b'
 alias src='source ~/.zshrc'
 alias tsrc='tmux source ~/.config/tmux/tmux.conf'
-alias aconfig='nvim ~/.config/alacritty'
-alias gconfig='nvim ~/.config/ghostty'
-alias vconfig='nvim ~/.config/nvim'
-alias tconfig='nvim ~/.config/tmux'
+alias aconfig='open-config alacritty'
+alias gconfig='open-config ghostty'
+alias vconfig='open-config nvim'
+alias tconfig='open-config tmux'
 alias zconfig='nvim ~/.zshrc'
 alias pconfig='nvim ~/.zprofile'
 
 # Personal functions
+
+# Open config folder
+open-config() {
+    pushd ~/.config/ > /dev/null
+    cd "$1"
+    nvim
+    popd > /dev/null
+}
 
 # SSH keys
 ssh-load() {

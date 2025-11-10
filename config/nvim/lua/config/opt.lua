@@ -10,14 +10,16 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.list = true
-vim.opt.listchars:append("trail:·")
+vim.opt.listchars:append "trail:·"
+vim.opt.fillchars:append { eob = "·" }
 vim.opt.smartindent = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
-vim.opt.scrolloff = 20
+vim.opt.scrolloff = 24
 vim.opt.virtualedit = ""
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
 vim.opt.laststatus = 3
 vim.opt.winborder = "rounded"
+vim.opt.signcolumn = "auto"
