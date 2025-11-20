@@ -53,7 +53,6 @@ return {
 
                 mapset("n", "K", vim.lsp.buf.hover, "Hover documentation")
                 mapset("i", "<C-s>", vim.lsp.buf.signature_help, "Signature help")
-                mapset("i", "<C-o>", "<C-x><C-o>", "Show completion options")
                 mapset("n", "gd", vim.lsp.buf.definition, "Go to definition")
                 mapset("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
                 mapset("n", "gI", vim.lsp.buf.implementation, "Go to implementation")

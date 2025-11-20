@@ -6,8 +6,6 @@ return {
         virtcolumn = "80",
     },
     config = function(_, opts)
-        vim.cmd "highlight VirtColumn guifg=#7aa2f7"
-
         local virtcolumn = require("virt-column")
         virtcolumn.setup(opts)
 

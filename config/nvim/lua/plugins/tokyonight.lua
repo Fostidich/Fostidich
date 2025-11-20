@@ -1,5 +1,6 @@
 return {
     "folke/tokyonight.nvim",
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
@@ -26,6 +27,7 @@ return {
         vim.cmd "highlight LineNrAbove guifg=#16161e"
         vim.cmd "highlight LineNrBelow guifg=#16161e"
 
+        vim.cmd "highlight VirtColumn guifg=#7aa2f7"
         vim.cmd "highlight SpellBad gui=underline guisp=#565f89"
     end
 }

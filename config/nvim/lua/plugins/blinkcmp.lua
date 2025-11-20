@@ -1,11 +1,23 @@
 return {
     "saghen/blink.cmp",
-    dependencies = { "rafamadriz/friendly-snippets" },
-    version = "1.*",
     opts = {
-        keymap = { preset = "default", },
-        completion = {
-            documentation = { auto_show = true },
+        keymap = {
+            ["<C-x>"] = { function(cmp) cmp.show() end },
         },
+        completion = {
+            menu = {
+                winblend = 0,
+                winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
+            },
+            documentation = {
+                window = {
+                    winblend = 0,
+                    winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
+                }
+            },
+            ghost_text = {
+                enabled = true
+            },
+        }
     }
 }
