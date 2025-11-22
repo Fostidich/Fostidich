@@ -13,7 +13,7 @@ return {
                 window = {
                     winblend = 0,
                     winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
-                }
+                },
             },
             ghost_text = {
                 enabled = true
