@@ -22,3 +22,14 @@ function SoloBuf()
 end
 
 vim.api.nvim_create_user_command("SoloBuf", SoloBuf, {})
+
+function ToggleWrap()
+    local new_wrap = not vim.wo.wrap
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+        vim.wo.wrap = new_wrap
+        vim.api.nvim_set_current_win(win)
+        vim.wo.wrap = new_wrap
+    end
+end
+
+vim.api.nvim_create_user_command("ToggleWrap", ToggleWrap, {})

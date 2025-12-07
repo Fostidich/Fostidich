@@ -10,24 +10,12 @@ zstyle ':completion:*' auto-description '%d'
 bindkey '^I' menu-complete
 
 # Prompt color customization
-colors=(
-    203 # f85552 red
-    208 # f57d26 orange
-    214 # dfa000 yellow
-    142 # 8da101 green
-    72  # 35a77c aqua
-    74  # 3a94c5 blue
-    212 # df69ba purple
-)
-c1=$((RANDOM % 7 + 1))
+c1=$((RANDOM % 6 + 1))
 while :; do
-  c2=$((RANDOM % 7 + 1))
+  c2=$((RANDOM % 6 + 1))
   [[ $c2 != $c1 ]] && break
 done
-PS1="%F{${colors[c1]}}%n@%m%f %F{${colors[c2]}}%1~%f "
-
-# Set back folder for navigation
-export BACK=$(pwd)
+PS1="%F{${c1}}%n@%m%f %F{${c2}}%1~%f "
 
 # Personal aliases
 alias b='back'
@@ -43,8 +31,6 @@ alias la='ls -a'
 alias ip='ipconfig getifaddr en0'
 alias path='echo $PATH | tr : "\n"'
 alias clip='pbcopy'
-alias gitree='(git ls-tree -r --name-only HEAD; git diff --cached --name-only --relative) | sort -u | tree --fromfile'
-alias gitok='echo $GHTOK | pbcopy'
 alias activate='source .venv/bin/activate'
 alias md='grip >/dev/null 2>&1 -b'
 alias src='source ~/.zshrc'
@@ -64,6 +50,14 @@ open-config() {
     cd "$1"
     nvim
     popd > /dev/null
+}
+
+# Show tree of git added files
+gitree() {
+    (git ls-tree -r --name-only HEAD; \
+     git diff --cached --name-only --relative) \
+        | sort -u \
+        | tree --fromfile
 }
 
 # SSH keys
@@ -111,6 +105,8 @@ nav() {
 }
 
 # Back navigation
+export BACK=$(pwd)
+
 back() {
     temp="$BACK"
     export BACK=$(pwd)

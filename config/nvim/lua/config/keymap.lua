@@ -20,7 +20,6 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous match" })
 
 vim.keymap.set("n", "<C-p>", "<cmd>cprev<cr>", { desc = "Previous quickfix match" })
 vim.keymap.set("n", "<C-n>", "<cmd>cnext<cr>", { desc = "Next quickfix match" })
-vim.keymap.set("n", "<leader>o", "<cmd>ToggleQuickfix<cr>", { desc = "Toggle Quickfix" })
+vim.keymap.set("n", "<leader>o", ToggleQuickfix, { desc = "Toggle Quickfix" })
 
-vim.keymap.set("n", "<leader>pv", "<cmd>vsplit<cr>", { desc = "Split pane vertically" })
-vim.keymap.set("n", "<leader>ph", "<cmd>split<cr>", { desc = "Split pane horizontally" })
+vim.keymap.set("n", "<leader>,", ToggleWrap, { desc = "Toggle text wrap option" })

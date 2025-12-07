@@ -16,6 +16,7 @@ return {
         vim.lsp.enable "lua_ls"
         vim.lsp.enable "markdown_oxide"
         vim.lsp.enable "vtsls"
+        vim.lsp.enable "ts_ls"
         vim.lsp.enable "html"
         vim.lsp.enable "cssls"
         vim.lsp.enable "pyright"
@@ -27,6 +28,7 @@ return {
         vim.lsp.enable "zls"
         vim.lsp.enable "gopls"
         vim.lsp.enable "sourcekit"
+        vim.lsp.enable "jsonls"
 
         vim.api.nvim_create_autocmd("LspAttach", {
             desc = "LSP settings set on attach",

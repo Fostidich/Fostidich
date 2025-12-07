@@ -2,11 +2,14 @@
 autoload -U compinit
 compinit
 
-# Various programs paths
+# Local programs
 export PATH="$PATH:$HOME/.local/bin"
+
+# .NET
 export PATH="$PATH:$HOME/.dotnet/tools"
+
+# Cargo
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$HOME/go/bin"
 
 # Homebrew
 export HOMEBREW_AUTO_UPDATE_SECS=86400
@@ -18,6 +21,9 @@ export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
 
 # C#
 export DOTNET_ROOT="/usr/local/share/dotnet"
+
+# Go
+export PATH="$PATH:$HOME/go/bin"
 
 # Vulkan
 export PATH="$PATH:$HOME/.local/VulkanSDK/1.4.304.1/Applications/vkcube.app/Contents/MacOS"
@@ -36,4 +42,7 @@ eval "$(/opt/homebrew/bin/zoxide init zsh)"
 
 # Swiftly
 . "/Users/kello/.swiftly/env.sh"
+
+# Fuzzy find in history search
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
